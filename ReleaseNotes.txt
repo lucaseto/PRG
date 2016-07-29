@@ -1,0 +1,5 @@
+Se crearon 2 webapi controller porque azure db era muy lenta y a veces daba time out, para acelaerar el proceso se hizo de esta manera, al final se dejo apuntando al servicio de azure,
+
+Se agrego algo de bootstrap para darle color y para darle algo de resposive
+
+
