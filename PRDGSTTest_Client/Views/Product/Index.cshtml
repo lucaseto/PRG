@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/ContentMin/css")
+</head>
+<body>
+    <div class='container'>
+        <h1>Product Administration</h1>
+        <a href="@Url.Action("Create", "Product")" class="btn btn-default btn-primary">Add new product</a>
+        <br /><br />
+
+        <div class=''>
+            <div class="row h2  hidden-sm hidden-xs">
+                <div class="col-md-3">
+                    ProductID
+                </div>
+                <div class="col-md-3">
+                    Name
+                </div>
+                <div class="col-md-3">
+                    ProductNumber
+                </div>
+                <div class="col-md-3">
+                    Option
+                </div>
+            </div>
+
+
+            @foreach (var product in ViewBag.listProducts)
+{
+    <div class="row thumbnail">
+
+        <div class="hidden-md hidden-lg visible-sm visible-xs col-sm-6 col-xs-6"><b>ProductID</b></div>
+        <div class="col-md-3 col-sm-6 col-xs-6">@product.ProductID</div>
+        <div class="hidden-md hidden-lg visible-sm visible-xs col-sm-6 col-xs-6"><b>Name</b></div>
+        <div class="col-md-3 col-sm-6 col-xs-6">@product.Name</div>
+        <div class="hidden-md hidden-lg visible-sm visible-xs col-sm-6 col-xs-6"><b>ProductNumber</b></div>
+        <div class="col-md-3 col-sm-6 col-xs-6">@product.ProductNumber</div>
+        <div class="hidden-md hidden-lg visible-sm visible-xs col-sm-6 col-xs-6"><b>Option</b></div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+            <a class="btn btn-default" onclick="confirm('Are you sure');" href="@Url.Action("Delete", "Product", new { id = product.ProductID })">Delete</a>
+            |
+            <a class="btn btn-default" href="@Url.Action("Edit", "Product", new { id = product.ProductID })">Edit</a>
+        </div>
+
+    </div>
+}
+
+
+        </div>
+    </div>
+ 
+</body>
+</html>

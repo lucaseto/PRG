@@ -1,0 +1,188 @@
+﻿@{
+    Layout = null;
+}
+
+
+@model PRDGSTest.ViewModels.ProductViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class='container'>
+                <h1>Create product</h1>
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.Name)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.Name)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.Name)
+                    </div>
+                </div>
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.ProductNumber)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.ProductNumber)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.ProductNumber)
+                    </div>
+                </div>
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.Color)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.Color)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.Color)
+                    </div>
+                </div>
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.StandardCost)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.StandardCost)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.StandardCost)
+                    </div>
+                </div>
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.ListPrice)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.ListPrice)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.ListPrice)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.Size)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.Size)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.Size)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.Weight)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.Weight)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.Weight)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.ProductCategoryID)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.ProductCategoryID)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.ProductCategoryID)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.ProductModelID)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.ProductModelID)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.ProductModelID)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.SellStartDate)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.SellStartDate)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.SellStartDate)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.SellEndDate)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.SellEndDate)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.SellEndDate)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.DiscontinuedDate)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.TextBoxFor(model => model.Product.DiscontinuedDate)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.ValidationMessageFor(model => model.Product.DiscontinuedDate)
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        @Html.LabelFor(model => model.Product.ThumbNailPhoto)
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <input type="file" name="file" id="file" />
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                     
+                    </div>
+                </div>
+
+                <div class="row thumbnail">
+                    <div class="col-md-4 col-sm-12 col-xs-12">                     
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">  
+                        <input class="btn btn-default btn-primary" type="submit" value="Save" />                   
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                     
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
