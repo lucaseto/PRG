@@ -39,8 +39,45 @@ namespace PRDGSTest.Controllers
         // PUT api/Product/5
         public IHttpActionResult PutProduct(int id, Product product)
         {
-            if (!ModelState.IsValid)
+            if (product.Name == null)
             {
+                ModelState.AddModelError("product.Name","product.Name empty");
+                return BadRequest(ModelState);
+            }
+
+            if (product.ProductNumber == null)
+            {
+                ModelState.AddModelError("product.ProductNumber", "product.ProductNumber empty");
+                return BadRequest(ModelState);
+            }
+            if (product.StandardCost == null)
+            {
+                ModelState.AddModelError("product.StandardCost", "product.StandardCost empty");
+                return BadRequest(ModelState);
+            }
+            if (product.ListPrice == null)
+            {
+                ModelState.AddModelError("product.ListPrice", "product.ListPrice empty");
+                return BadRequest(ModelState);
+            }
+            if (product.SellStartDate == null)
+            {
+                ModelState.AddModelError("product.SellStartDate", "product.SellStartDate empty");
+                return BadRequest(ModelState);
+            }
+            if (product.rowguid == null)
+            {
+                ModelState.AddModelError("product.rowguid", "product.rowguid empty");
+                return BadRequest(ModelState);
+            }
+            if (product.ModifiedDate == null)
+            {
+                ModelState.AddModelError("product.ModifiedDate", "product.ModifiedDate empty");
+                return BadRequest(ModelState);
+            }
+
+            if (!ModelState.IsValid)
+            {                
                 return BadRequest(ModelState);
             }
 
@@ -74,6 +111,43 @@ namespace PRDGSTest.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult PostProduct(Product product)
         {
+            if (product.Name == null)
+            {
+                ModelState.AddModelError("product.Name", "product.Name empty");
+                return BadRequest(ModelState);
+            }
+
+            if (product.ProductNumber == null)
+            {
+                ModelState.AddModelError("product.ProductNumber", "product.ProductNumber empty");
+                return BadRequest(ModelState);
+            }
+            if (product.StandardCost == null)
+            {
+                ModelState.AddModelError("product.StandardCost", "product.StandardCost empty");
+                return BadRequest(ModelState);
+            }
+            if (product.ListPrice == null)
+            {
+                ModelState.AddModelError("product.ListPrice", "product.ListPrice empty");
+                return BadRequest(ModelState);
+            }
+            if (product.SellStartDate == null)
+            {
+                ModelState.AddModelError("product.SellStartDate", "product.SellStartDate empty");
+                return BadRequest(ModelState);
+            }
+            if (product.rowguid == null)
+            {
+                ModelState.AddModelError("product.rowguid", "product.rowguid empty");
+                return BadRequest(ModelState);
+            }
+            if (product.ModifiedDate == null)
+            {
+                ModelState.AddModelError("product.ModifiedDate", "product.ModifiedDate empty");
+                return BadRequest(ModelState);
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
