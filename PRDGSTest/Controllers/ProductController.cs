@@ -19,6 +19,7 @@ namespace PRDGSTest.Controllers
         // GET api/Product
         public IQueryable<Product> GetProducts()
         {
+            
             return db.Products;
         }
 

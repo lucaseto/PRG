@@ -18,6 +18,7 @@ namespace PRDGSTest.Models
         public prodigiousEntities()
             : base("name=prodigiousEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,5 +27,7 @@ namespace PRDGSTest.Models
         }
     
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<ProductModel> ProductModels { get; set; }
     }
 }

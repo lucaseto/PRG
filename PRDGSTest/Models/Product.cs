@@ -11,34 +11,28 @@ namespace PRDGSTest.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Product
     {
         public int ProductID { get; set; }
-
-        [Required(ErrorMessage = "Please enter a name")]
         public string Name { get; set; }
-        [Required]
         public string ProductNumber { get; set; }
         public string Color { get; set; }
-        [Required]
         public decimal StandardCost { get; set; }
-        [Required]
         public decimal ListPrice { get; set; }
         public string Size { get; set; }
         public Nullable<decimal> Weight { get; set; }
         public Nullable<int> ProductCategoryID { get; set; }
         public Nullable<int> ProductModelID { get; set; }
-        [Required]
         public System.DateTime SellStartDate { get; set; }
         public Nullable<System.DateTime> SellEndDate { get; set; }
         public Nullable<System.DateTime> DiscontinuedDate { get; set; }
         public byte[] ThumbNailPhoto { get; set; }
         public string ThumbnailPhotoFileName { get; set; }
-        [Required]
         public System.Guid rowguid { get; set; }
-        [Required]
         public System.DateTime ModifiedDate { get; set; }
+    
+        public virtual ProductCategory ProductCategory { get; set; }
+        public virtual ProductModel ProductModel { get; set; }
     }
 }

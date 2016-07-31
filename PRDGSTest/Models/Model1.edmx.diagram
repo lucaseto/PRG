@@ -6,6 +6,11 @@
     <edmx:Diagrams>
       <Diagram DiagramId="75f471db689645158cd2027428cad443" Name="Diagram1">
         <EntityTypeShape EntityType="prodigiousModel.Product" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prodigiousModel.ProductCategory" Width="1.5" PointX="1.125" PointY="9.75" />
+        <EntityTypeShape EntityType="prodigiousModel.ProductModel" Width="1.5" PointX="1.125" PointY="6.875" />
+        <AssociationConnector Association="prodigiousModel.FK_Product_ProductCategory_ProductCategoryID" />
+        <AssociationConnector Association="prodigiousModel.FK_Product_ProductModel_ProductModelID" />
+        <AssociationConnector Association="prodigiousModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

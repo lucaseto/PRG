@@ -45,10 +45,10 @@ namespace PRDGSTTest_Client.Models
         [Display(Name = "Weight")]
         public Nullable<decimal> Weight { get; set; }
 
-        [Display(Name = "Product Category ID")]
+        [Display(Name = "Product Category")]
 
         public Nullable<int> ProductCategoryID { get; set; }
-        [Display(Name = "Product Model ID")]
+        [Display(Name = "Product Model")]
 
         public Nullable<int> ProductModelID { get; set; }
 
@@ -99,6 +99,12 @@ namespace PRDGSTTest_Client.Models
         [Required(ErrorMessage = "Please enter a Modified Date")]
 
         public System.DateTime ModifiedDate { get; set; }
+
+        public List<ProductCategory> ListProductCategory { get; set; }
+
+        public List<ProductModel> ListProductModel { get; set; }
+
+      
 
     }
 }

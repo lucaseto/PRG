@@ -104,7 +104,7 @@
                         @Html.LabelFor(model => model.Product.ProductCategoryID)
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.TextBoxFor(model => model.Product.ProductCategoryID)
+                        @Html.DropDownListFor(model => model.Product.ProductCategoryID, new SelectList(Model.Product.ListProductCategory, "ProductCategoryID", "Name")) 
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         @Html.ValidationMessageFor(model => model.Product.ProductCategoryID)
@@ -116,7 +116,7 @@
                         @Html.LabelFor(model => model.Product.ProductModelID)
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.TextBoxFor(model => model.Product.ProductModelID)
+                        @Html.DropDownListFor(model => model.Product.ProductModelID, new SelectList(Model.Product.ListProductModel, "ProductModelID", "Name"))
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         @Html.ValidationMessageFor(model => model.Product.ProductModelID)
@@ -161,17 +161,15 @@
 
                 <div class="row thumbnail">
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.LabelFor(model => model.Product.ThumbNailPhoto)
+                        @Html.LabelFor(model => model.Product.ThumbNailPhoto)                       
+                                                                 
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <img src="@Model.Product.ThumbNailPhotoDisplay" width="80" height="80" /><br />
                         <input type="file" name="file" id="file" />
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-
                     </div>
-
-
                 </div>
 
                 <div class="row thumbnail">
@@ -193,6 +191,11 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <input class="btn btn-default btn-primary" type="submit" value="Save" />
                         @Html.HiddenFor(model => model.Product.ProductID)
+                        @Html.HiddenFor(model => model.Product.rowguid)
+                        @Html.HiddenFor(model => model.Product.ThumbNailPhoto)
+                        @Html.HiddenFor(model => model.Product.ThumbnailPhotoFileName)
+
+                        
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
 

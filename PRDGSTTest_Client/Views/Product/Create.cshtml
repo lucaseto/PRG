@@ -105,7 +105,7 @@
                         @Html.LabelFor(model => model.Product.ProductCategoryID)
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.TextBoxFor(model => model.Product.ProductCategoryID)
+                        @Html.DropDownListFor(model => model.Product.ProductCategoryID, new SelectList(Model.Product.ListProductCategory, "ProductCategoryID", "Name"))
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         @Html.ValidationMessageFor(model => model.Product.ProductCategoryID)
@@ -117,8 +117,8 @@
                         @Html.LabelFor(model => model.Product.ProductModelID)
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.TextBoxFor(model => model.Product.ProductModelID)
-                    </div>
+                        @Html.DropDownListFor(model => model.Product.ProductModelID, new SelectList(Model.Product.ListProductModel, "ProductModelID", "Name"))
+                  </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         @Html.ValidationMessageFor(model => model.Product.ProductModelID)
                     </div>
@@ -176,7 +176,7 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">                     
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">  
-                        <input class="btn btn-default btn-primary" type="submit" value="Save" />                   
+                        <input class="btn btn-default btn-primary" type="submit" value="Save" />
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                      

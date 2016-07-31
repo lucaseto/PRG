@@ -42,7 +42,23 @@ namespace PRDGSTTest_Client.Models
             }
         }
 
-        public Product find(int id)
+        internal Product Create()
+        {
+            Product product = new Product();
+            product.ListProductCategory = FillProductCategory();
+            product.ListProductModel = FillProductModel();
+            product.SellStartDate = DateTime.Now;
+            return product;
+        }
+
+        internal Product FillList(Product product)
+        {          
+            product.ListProductCategory = FillProductCategory();
+            product.ListProductModel = FillProductModel();
+            return product;
+        }
+
+        public Product Find(int id)
         {
             try
             {
@@ -54,7 +70,56 @@ namespace PRDGSTTest_Client.Models
                 HttpResponseMessage response = client.GetAsync(controllerProduct + "/" + id.ToString()).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    return response.Content.ReadAsAsync<Product>().Result;
+                    Product product = response.Content.ReadAsAsync<Product>().Result;
+                    product.ListProductCategory = FillProductCategory();
+                    product.ListProductModel = FillProductModel();
+                    return product;
+                }
+                return null;
+            }
+            catch
+            {
+
+                return null;
+            }
+        }
+
+        private List<ProductModel> FillProductModel()
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(userName + ":" + password));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authInfo);
+                client.BaseAddress = new Uri(BaseURL);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.GetAsync("ProductModel").Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    return response.Content.ReadAsAsync<List<ProductModel>>().Result;
+                }
+                return null;
+            }
+            catch
+            {
+
+                return null;
+            }
+        }
+
+        private List<ProductCategory> FillProductCategory()
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(userName + ":" + password));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authInfo);
+                client.BaseAddress = new Uri(BaseURL);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.GetAsync("ProductCategory").Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    return response.Content.ReadAsAsync<List<ProductCategory>>().Result;
                 }
                 return null;
             }
@@ -120,5 +185,7 @@ namespace PRDGSTTest_Client.Models
             }
         }
 
+
+     
     }
 }

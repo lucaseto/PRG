@@ -22,7 +22,10 @@ namespace PRDGSTTest_Client.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View("Create");
+            ProductClient pc = new ProductClient();
+            ProductViewModel pvm = new ProductViewModel();
+            pvm.Product = pc.Create();
+            return View("Create", pvm);
         }
 
         [HttpPost]
@@ -32,6 +35,8 @@ namespace PRDGSTTest_Client.Controllers
             pvm.Product.rowguid = Guid.NewGuid();
             if (!ModelState.IsValid)
             {
+                ProductClient pc = new ProductClient();
+                pc.FillList(pvm.Product);
                 return View("Create", pvm);
             }
             else
@@ -78,15 +83,19 @@ namespace PRDGSTTest_Client.Controllers
 
             ProductClient pc = new ProductClient();
             ProductViewModel pvm = new ProductViewModel();
-            pvm.Product = pc.find(id);            
+            pvm.Product = pc.Find(id);
+          
+
             return View("Edit", pvm);
         }
         [HttpPost]
         public ActionResult Edit(ProductViewModel pvm, HttpPostedFileBase file)
         {
-            pvm.Product.ModifiedDate = DateTime.Now;
+            pvm.Product.ModifiedDate = DateTime.Now;            
             if (!ModelState.IsValid)
             {
+                ProductClient pc = new ProductClient();
+                pc.FillList(pvm.Product);
                 return View("Edit", pvm);
             }
             else
