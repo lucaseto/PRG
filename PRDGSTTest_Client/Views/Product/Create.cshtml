@@ -10,7 +10,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/ContentMin/css")
+    @Scripts.Render("~/bundles/PRDGSTJS")
 </head>
 <body>
     <div>
@@ -128,7 +129,7 @@
                         @Html.LabelFor(model => model.Product.SellStartDate)
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.TextBoxFor(model => model.Product.SellStartDate)
+                        @Html.TextBoxFor(model => model.Product.SellStartDate, new { @class = "datetimeSelector" })
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         @Html.ValidationMessageFor(model => model.Product.SellStartDate)
@@ -140,7 +141,7 @@
                         @Html.LabelFor(model => model.Product.SellEndDate)
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.TextBoxFor(model => model.Product.SellEndDate)
+                        @Html.TextBoxFor(model => model.Product.SellEndDate, new { @class = "datetimeSelector" })
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         @Html.ValidationMessageFor(model => model.Product.SellEndDate)
@@ -152,7 +153,7 @@
                         @Html.LabelFor(model => model.Product.DiscontinuedDate)
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        @Html.TextBoxFor(model => model.Product.DiscontinuedDate)
+                        @Html.TextBoxFor(model => model.Product.DiscontinuedDate, new { @class = "datetimeSelector" })
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         @Html.ValidationMessageFor(model => model.Product.DiscontinuedDate)

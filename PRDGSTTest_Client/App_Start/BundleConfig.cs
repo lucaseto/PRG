@@ -23,12 +23,21 @@ namespace PRDGSTTest_Client
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/PRDGSTJS").Include(
+                    "~/Scripts/jquery-{version}.js",
+                    "~/Scripts/jquery-ui.min.js",
+                    "~/Scripts/PRDGST.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/ContentMin/css").Include(
-                "~/Content/bootstrap.min.css"));
+                "~/Content/bootstrap.min.css",
+                 "~/Content/jquery-ui.min.css",     
+                  "~/Content/jquery-ui.theme.min.css" ,
+                    "~/Content/jquery-ui.structure.min.css"   
+                ));
         }
     }
 }
